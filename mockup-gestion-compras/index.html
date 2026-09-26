@@ -1,103 +1,16 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Casa Pellas · Propuesta visual v4</title>
-<style>
-:root{font-family:Arial,Helvetica,sans-serif;color:#17213b;background:#f1f4fa}*{box-sizing:border-box}body{margin:0}.page{max-width:1800px;margin:auto;padding:25px 24px 48px}.eyebrow{color:#1352b9;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{margin:7px 0 8px;font-size:30px;letter-spacing:-.03em}.intro{max-width:1050px;color:#5b6880;font-size:15px;line-height:1.5}.status{display:inline-block;margin:14px 0 22px;padding:8px 12px;color:#864705;background:#fff0d8;border:1px solid #f5d8aa;border-radius:8px;font-size:12px;font-weight:800}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:20px;align-items:start}.index{position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto;display:grid;gap:5px;padding:13px;background:#fff;border:1px solid #dce5f3;border-radius:13px;box-shadow:0 8px 25px #1428550d}.index .group{margin:14px 8px 5px;color:#8190a9;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.index button{text-align:left;padding:9px 11px;border:1px solid transparent;border-radius:8px;color:#334259;background:transparent;cursor:pointer;font-size:12px}.index button:hover,.index button.active{color:#0d44a1;background:#eef4ff;border-color:#c4d7f5}.viewer{min-width:0;padding:16px;background:#fff;border:1px solid #dce5f3;border-radius:13px;box-shadow:0 12px 34px #14285514}.head{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:2px 3px 15px}.head h2{margin:0 0 5px;font-size:18px}.head p{margin:0;color:#66748c;font-size:13px;line-height:1.4}.pager{display:flex;gap:8px;white-space:nowrap}.pager button,.pager a{border:1px solid #cbd9ef;border-radius:7px;padding:8px 11px;color:#164ba2;background:#fff;font-weight:700;cursor:pointer;font-size:13px;text-decoration:none}.screen-wrap{overflow:auto;border:1px solid #d7e1f0;border-radius:8px;background:#fff}.stage{position:relative;width:100%;line-height:0}.stage>img{width:100%;height:auto;display:block}.rail{position:absolute;z-index:2;inset:0 auto 0 0;background:#fff;border-right:1px solid #d9e4f4;font-size:clamp(9px,.95vw,15px);line-height:1.3}.brand{position:absolute;top:2.5%;left:7%;width:82%}.brand img{display:block;width:100%;height:auto}.brand span{display:block;margin-top:2%;color:#63718a;font-size:.75em}.nav{position:absolute;top:11%;left:6%;right:6%;display:grid;gap:.4em}.nav .item{padding:.75em;border-radius:.45em;color:#52617d;font-weight:700}.nav .selected{background:#eef4ff;border:1px solid #b9d0f5;color:#0b48aa}.role{position:absolute;bottom:2%;left:6%;right:6%;padding:.7em;border:1px solid #cfdef4;border-radius:.55em;background:#fff;color:#1d2c4c}.role strong{display:block}.role span{color:#5b6a82;font-size:.8em}.caption{margin-top:12px;color:#64728a;font-size:12px;line-height:1.45}@media(max-width:850px){.layout{grid-template-columns:1fr}.index{position:static;max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}.index .group{grid-column:1/-1}.head{flex-wrap:wrap}.rail{font-size:9px}}body.capture{background:#fff}body.capture .page{max-width:none;padding:0}body.capture .page>.eyebrow,body.capture .page>h1,body.capture .page>.intro,body.capture .page>.status,body.capture .index,body.capture .head,body.capture .caption{display:none}body.capture .layout{display:block}body.capture .viewer,body.capture .screen-wrap{border:0;box-shadow:none;padding:0;overflow:visible;border-radius:0}
-</style></head><body><main class="page"><div class="eyebrow">Casa Pellas · Gestión de Compras</div><h1>Propuesta visual del primer subproceso · v4</h1><p class="intro">Las capturas previas y las vistas posteriores se conservan. La validación de Compras deja de ser un asistente de cinco pantallas: las láminas 07A–07C muestran tres estados de una misma vista del expediente, con idéntica navegación y estructura.</p><div class="status">SOLO IMÁGENES · PENDIENTE DE APROBACIÓN VISUAL · SIN FUNCIONES DE DEMO</div><div class="layout"><nav class="index" id="index"></nav><section class="viewer"><div class="head"><div><h2 id="title"></h2><p id="description"></p></div><div class="pager"><a id="large" href="#" target="_blank">Ver grande ↗</a><button id="previous">← Anterior</button><button id="next">Siguiente →</button></div></div><div class="screen-wrap"><div class="stage"><img id="screen" alt="Lámina de propuesta visual"><div class="rail" id="rail"></div></div></div><div class="caption">Imágenes de diseño con datos ficticios y logo original de Casa Pellas. El recorrido y los botones dentro de cada lámina son una propuesta de funcionamiento futuro; solo la navegación de esta galería permite cambiar de imagen.</div></section></div></main>
-<style>
-.capture-back{display:none}
-body.capture .capture-back{display:inline-block;position:fixed;top:12px;right:12px;z-index:20;padding:10px 14px;background:#fff;border:1px solid #cbd9ef;border-radius:7px;box-shadow:0 4px 14px #14285522;color:#164ba2;font-size:14px;font-weight:700;text-decoration:none}
-body.capture .stage{width:max-content}
-body.capture .stage>img{width:auto;max-width:none}
-</style>
-<script>
-const v2='assets/mockups_v2/';
-const v3='assets/mockups_v3/';
-const screens=[
-{file:v2+'01_bandeja.png',title:'01 · Bandeja única',description:'Entrada a los expedientes visibles según rol y etapa.',group:'Entrada',old:true,rail:300},
-{file:v2+'02_apertura.png',title:'02 · Documento de apertura',description:'Se selecciona OP o proforma para el ejemplo continuo EXP-0042.',group:'Entrada',old:true,rail:300},
-{file:v2+'03_metodo.png',title:'03 · Método de digitalización',description:'Los tres métodos sirven para OP/proforma, factura o aviso de embarque. Aquí sigue OP-4501.',group:'Entrada',old:true,rail:300},
-{file:v3+'04_op_manual_v3.png',title:'04A · OP-4501 manual',description:'Método ya elegido: captura en formulario y PDF original adjunto al expediente.',group:'Tres alternativas de captura'},
-{file:v3+'05_op_excel_v3.png',title:'04B · OP-4501 por Excel',description:'Descarga de plantilla, selección del Excel y adjunto separado del PDF original.',group:'Tres alternativas de captura'},
-{file:v3+'06_op_ocr_v3.png',title:'04C · OP-4501 por IA Builder',description:'Selección del PDF para OCR; el mismo archivo queda adjunto al expediente, sin segunda carga.',group:'Tres alternativas de captura'},
-{file:'07_resumen_compras_v4.png',title:'05 · Resumen en Compras',description:'Una sola entrada a la validación de FAC-002 contra las órdenes JDE.',group:'Expediente único'},
-{file:v2+'08_carpeta.png',title:'06 · Carpeta documental',description:'Lista única y checklist. Se conserva visualmente la propuesta anterior.',group:'Expediente único',old:true,rail:300},
-{file:'09_1_validacion_lista_v4.png',title:'07A · Vista de validación: lista',description:'FAC-002, packing list y órdenes JDE v1 disponibles en un solo espacio.',group:'Una vista, tres estados'},
-{file:'09_2_validacion_diferencias_v4.png',title:'07B · Misma vista: diferencias',description:'La comparación por línea revela cantidad y FOB; Compras corrige en JDE cuando corresponde.',group:'Una vista, tres estados'},
-{file:'09_3_validacion_conforme_v4.png',title:'07C · Misma vista: revalidada',description:'La exportación JDE v2 queda vigente, v1 histórica y la traducción se habilita.',group:'Una vista, tres estados'},
-{file:v3+'10_resumen_importaciones_v3.png',title:'08 · Mismo resumen en Importaciones',description:'La ficha es la misma EXP-0042; cambian la etapa actual y el contenedor de trabajo.',group:'Cambio de etapa'},
-{file:v3+'10b_importaciones_consulta_compras_v3.png',title:'09 · Consultar Compras finalizada',description:'Con Importaciones actual, se representa la consulta de una etapa ya terminada; las pendientes siguen inactivas.',group:'Cambio de etapa'},
-{file:v2+'11_administracion.png',title:'10 · Administración',description:'Reasignación administrativa, conservada de la propuesta anterior.',group:'Otras vistas',old:true,rail:277,role:'Administración',person:'Administración'},
-{file:v2+'12_historial.png',title:'11 · Historial',description:'Cronología del EXP-0042, conservada de la propuesta anterior.',group:'Otras vistas',old:true,rail:300}
-];
-const localFiles=[
-  '01_bandeja_v5.png','02_apertura_v5.png','03_metodo_v5.png',
-  '04_op_manual_v5.png','05_op_excel_v5.png','06_op_ocr_v5.png',
-  '07_resumen_compras_v5.png','08_carpeta_v5.png',
-  '09_1_validacion_lista_v5.png','09_2_validacion_diferencias_v5.png','09_3_validacion_conforme_v5.png',
-  '10_resumen_importaciones_v5.png','10b_importaciones_consulta_compras_v5.png',
-  '11_administracion_v5.png','12_historial_v5.png'
-];
-screens.forEach((screen,index)=>screen.file='assets/mockups_v5/'+localFiles[index]);
-screens[6].file='assets/mockups_v7/07_resumen_compras_v7.png';
-screens[11].file='10_resumen_importaciones_v7.png';
-screens[11].file='assets/mockups_v8/10_resumen_importaciones_v8.png';
-screens[12].file='assets/mockups_v7/10b_importaciones_consulta_compras_v7.png';
-screens[11].title='08 · Importaciones: OI pendiente';
-screens[12].title='08A · Consultar Compras';
-screens.splice(13,0,
-  {file:'assets/mockups_v8/13_importaciones_devolucion_v8.png',title:'08B · Devolver a Compras',description:'La misma ficha de 08 queda al fondo; la observación es obligatoria y la acción de devolución es rojo oscuro.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v7/14_importaciones_oi_v7.png',title:'08C · Registrar OI',description:'OI creada en JDE: consecutivo, PDF de soporte y Excel del detalle opcional antes de continuar.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v7/15_importaciones_embarque_v7.png',title:'08D · Embarque y seguimiento',description:'Con OI registrada en JDE se activan los datos y el seguimiento logístico del mismo expediente.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v7/16_importaciones_agencia_v7.png',title:'08E · Asignación de agencia',description:'Datos del expediente, agencia y documentos para preparar el correo inicial.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v7/17_importaciones_transporte_v7.png',title:'08F · Transporte',description:'Coordinación externa y avances registrados sin afirmar integración con el transportista.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v12/18_importaciones_cargos_v12.png',title:'08G · Facturas y seguimiento',description:'Cada PDF y factura de servicio queda en el expediente con un ID de seguimiento que abre el módulo Pagos.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v8/19_preliquidacion_fuentes_v8.png',title:'08H · Fuentes de aranceles',description:'Preliquidación, detalle SIA y detalle OI en Excel disponibles como fuentes versionadas.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/20_preliquidacion_diferencias_v8.png',title:'08I · Comparar líneas',description:'Contraste de artículo, SAC, porcentajes DAI/ISC, regla y valores; las diferencias impiden confirmar.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/21_preliquidacion_recarga_v8.png',title:'08J · Corregir y recargar',description:'La nueva versión de OI, SIA o preliquidación requiere una observación y conserva la anterior.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/22_preliquidacion_conciliada_v8.png',title:'08K · Confirmar aranceles',description:'Solo se confirma con fuentes vigentes conciliadas; los códigos P reflejan DAI e ISC, no regla espejo.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/23_liberacion_espera_v8.png',title:'08L · Seguimiento de liberación',description:'La conciliación no implica liberación. El caso espera aviso de la agencia y registra gestiones.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/24_liberacion_registro_v8.png',title:'08M · Registrar liberación',description:'Importaciones actualiza el estado al recibir el aviso y se prepara la alerta a Bodega, Compras y CPD.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/25_programacion_v8.png',title:'08N · Programación de recepción',description:'Se registra la semana, orden y prioridad acordadas; la app no las calcula por su cuenta.',group:'Importaciones · revisión y liberación'},
-  {file:'assets/mockups_v8/26_costeo_documentos_v8.png',title:'08O · Entrega documental a Costeo',description:'Se seleccionan los soportes visibles para Costeo, mientras la carpeta completa permanece en el expediente.',group:'Importaciones · revisión y liberación'}
-);
-screens[7].file='assets/mockups_v8/08_carpeta_sin_selector_v8.png';
-screens[7].description='Carpeta única sin selector de tipos de factura de servicio. Esas facturas se capturan desde Importaciones.';
-screens.splice(19,0,
-  {file:'assets/mockups_v12/18a_registrar_factura_servicio_v12.png',title:'08G-A · Registrar factura de servicio',description:'Modal PDF y datos: encabezado, conceptos e importe; al guardar se crea un pendiente en Pagos sin ID Getpay.',group:'Importaciones · embarque y servicios'},
-  {file:'assets/mockups_v8/08b_carpeta_con_servicios_v8.png',title:'08G-1 · Documentos actualizados',description:'Después de registrar los servicios en Importaciones, sus facturas aparecen en la misma carpeta, sin volver a subirlas.',group:'Importaciones · revisión y liberación',old:true,rail:300}
-);
-screens.splice(29,0,
-  {file:'assets/mockups_v14/27_costeo_resumen_v13.png',title:'09 · Resumen en Costeo',description:'La entrada conserva OI, documentos, pendientes y devolución, con las mismas tres pestañas del recorrido.',group:'Costeo · entrada'},
-  {file:'assets/mockups_v14/28_costeo_devolucion_v13.png',title:'09A · Devolver a Importaciones',description:'El mismo resumen queda detrás del modal; la devolución conserva avances y exige observación.',group:'Costeo · entrada'},
-  {file:'assets/mockups_v14/29_costeo_liquidacion_preparar_v13.png',title:'09B · Liquidación: preparar',description:'OI y soportes vigentes; Costeo confirma tipo de cambio, cargos y base antes de calcular H1.',group:'Costeo · Liquidación'},
-  {file:'assets/mockups_v14/30_costeo_liquidacion_resultado_v13.png',title:'09C · Liquidación: resultado H1',description:'Resultado por concepto con origen, base, importe e IVA separado; acceso a desglose y modalidad madre–hijas.',group:'Costeo · Liquidación'},
-  {file:'assets/mockups_v14/31_costeo_liquidacion_pdf_v13.png',title:'09D · Liquidación: PDF v1',description:'Vista previa y archivos de H1 v1 en la carpeta. Costeo envía el PDF a revisión de Importaciones.',group:'Costeo · Liquidación'},
-  {file:'assets/mockups_v14/32_costeo_jde_valores_v13.png',title:'09E · JDE: valores H2',description:'H2 sale de H1 v1; prevalidación, reserva exclusiva de regla y archivo de valores para el trabajo externo en JDE.',group:'Costeo · JDE'},
-  {file:'assets/mockups_v14/33_costeo_jde_pendiente_v13.png',title:'09F · JDE: resultado pendiente',description:'El intento conserva H1/H2, PDF, regla ocupada y ejecución informada; COSTOS JD todavía no se ha cargado.',group:'Costeo · JDE'},
-  {file:'assets/mockups_v14/34_costeo_comprobacion_diferencias_v13.png',title:'09G · Comprobación: diferencias',description:'COSTOS JD se contrasta por concepto y total. El control propuesto menor de US$6 genera advertencia, no bloqueo.',group:'Costeo · Comprobación'},
-  {file:'assets/mockups_v14/35_costeo_comprobacion_conforme_v13.png',title:'09H · Comprobación: conforme',description:'El intento 2 conserva el histórico; PDF revisado, JDE aplicado y CPD confirmado habilitan liberar la regla.',group:'Costeo · Comprobación'}
-);
-screens.splice(38,0,
-  {file:'assets/mockups_v12/39_pagos_bandeja_v12.png',title:'10 · Bandeja de Pagos',description:'Espacio propio: pendientes derivados de expedientes y seguimiento independiente sin expediente; Getpay conserva el trámite.',group:'Pagos · espacio independiente'},
-  {file:'assets/mockups_v12/39a_seguimiento_independiente_v12.png',title:'10-1 · Agregar seguimiento independiente',description:'Modal sobre la bandeja para registrar una gestión sin expediente obligatorio y sin crear solicitud en Getpay.',group:'Pagos · espacio independiente'},
-  {file:'assets/mockups_v12/40_pago_ficha_pendiente_v12.png',title:'10A · Gestión por tramitar',description:'La ficha propia de Pagos muestra origen, soportes y salida a Getpay; no es una vista del expediente.',group:'Pagos · espacio independiente'},
-  {file:'assets/mockups_v12/41_pago_ficha_actualizada_v12.png',title:'10B · Misma ficha con resultado informado',description:'Getpay aprobado, JDE pendiente y pago no confirmado en una sola vista de seguimiento.',group:'Pagos · espacio independiente'}
-);
-screens[42].description='Vista administrativa de expedientes y reasignación de comprador.';
-screens[43].description='Cronología de eventos y cambios del EXP-0042.';
-screens.push(
-  {file:'assets/mockups_v14/45_contabilidad_revision_v14.png',title:'11 · Contabilidad: revisión',description:'Módulo independiente para revisar la carpeta depurada, referencias JDE y seguimientos de pago sin operar Getpay.',group:'Contabilidad · módulo independiente'},
-  {file:'assets/mockups_v14/46_contabilidad_devolucion_v14.png',title:'11A · Devolver a Importaciones',description:'Modal sobre la misma revisión: documento señalado, observación obligatoria e historial conservado.',group:'Contabilidad · módulo independiente'},
-  {file:'assets/mockups_v14/47_contabilidad_conforme_v14.png',title:'11B · Revisión conforme',description:'Conformidad documental-contable del expediente; Getpay, JDE y pago efectivo permanecen como hitos separados.',group:'Contabilidad · módulo independiente'}
-);
-document.title='Casa Pellas · Propuesta visual v14';
-document.querySelector('.page h1').textContent='Propuesta visual · Compras, Importaciones, Costeo, Pagos y Contabilidad · v14';
-document.querySelector('.page .intro').textContent='Ampliación aditiva sobre v13: tres estados de una sola vista del módulo de Contabilidad. Las 44 láminas anteriores se conservan sin cambios. La demo funcional no se modifica.';
-let current=Math.max(0,Math.min(screens.length-1,Number(new URLSearchParams(location.search).get('screen')||1)-1));
-if(new URLSearchParams(location.search).get('capture')==='1')document.body.classList.add('capture');
-const largeLink=document.getElementById('large');largeLink.removeAttribute('target');
-const captureBack=document.createElement('a');captureBack.id='captureBack';captureBack.className='capture-back';captureBack.textContent='← Volver a galería';document.body.prepend(captureBack);
-const index=document.getElementById('index');let group='';screens.forEach((s,i)=>{if(s.group!==group){const el=document.createElement('div');el.className='group';el.textContent=s.group;index.append(el);group=s.group}const b=document.createElement('button');b.textContent=s.title;b.onclick=()=>select(i);index.append(b)});
-function select(i){current=(i+screens.length)%screens.length;const s=screens[current];const image=document.getElementById('screen');image.src=s.file;image.alt=s.title;document.getElementById('title').textContent=s.title;document.getElementById('description').textContent=s.description;document.getElementById('large').href=`?screen=${current+1}&capture=1`;captureBack.href=`?screen=${current+1}`;document.querySelectorAll('.index button').forEach((b,j)=>b.classList.toggle('active',current===j));const rail=document.getElementById('rail');rail.style.display=s.old?'block':'none';if(s.old){rail.innerHTML=`<div class="brand"><img src="${v2}casa-pellas-logo-original.png" alt="Casa Pellas"><span>Gestión de Compras</span></div><div class="nav"><div class="item selected">▣　 Expedientes</div><div class="item">▥　 Reportes</div></div><div class="role"><strong>${s.person||'Mariana López'}</strong><span>${s.role||'Compras'}</span></div>`;const set=()=>rail.style.width=`${s.rail/image.naturalWidth*100}%`;image.onload=set;if(image.complete&&image.naturalWidth)set()}if(!document.body.classList.contains('capture'))history.replaceState(null,'',`?screen=${current+1}`)}
-document.getElementById('previous').onclick=()=>select(current-1);document.getElementById('next').onclick=()=>select(current+1);document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')select(current+1);if(e.key==='ArrowLeft')select(current-1)});select(current);captureBack.href=`?screen=${current+1}`;
-</script></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de Compras · Guía de la propuesta</title>
+  <link rel="icon" href="assets/casa-pellas-logo-original.png">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <header class="page-head"><div class="heading-copy"><div class="eyebrow">Casa Pellas · Gestión de Compras</div><h1>Propuesta visual</h1><p>Recorre las imágenes y sus alternativas. Los controles dibujados no ejecutan operaciones.</p></div><img class="nara-logo" src="assets/logo_nara_consultores.png" alt="Nara Consultores" width="800" height="321"></header>
+  <main id="content" tabindex="-1"><p class="loading">Cargando el recorrido…</p></main>
+  <footer>Propuesta visual · datos ficticios · pendiente de aprobación.</footer>
+  <script src="guide.js" defer></script>
+</body>
+</html>
