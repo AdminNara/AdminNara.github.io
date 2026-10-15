@@ -1,6 +1,6 @@
 {
   "application": "Gestión de Compras · Casa Pellas",
-  "version": "0.16.53-demo",
-  "data": "FICTITIOUS",
-  "publication_change": "CHG-20261015-MAESTRO-PUBLICO-01"
+  "version": "0.16.54-demo",
+  "data": "REAL_BUSINESS_NAMES_SIMULATED_OPERATIONS",
+  "publication_change": "CHG-20261015-CATALOGOS-REALES-01"
 }
